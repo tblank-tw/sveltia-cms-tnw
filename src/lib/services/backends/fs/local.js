@@ -66,6 +66,16 @@ let rootDirHandle = undefined;
  * @see https://developer.chrome.com/articles/file-system-access/#stored-file-or-directory-handles-and-permissions
  */
 export const getRootDirHandle = async ({ forceReload = false, showPicker = true } = {}) => {
+  // [ELECTRON] If the host app provides a pre-initialized directory handle via window,
+  // use it directly. This eliminates the File System Access API directory picker entirely.
+  // The handle is an IPC-backed shim created by the Electron renderer that delegates
+  // file operations to the main process via Node.js fs. Stored on window (not in config)
+  // because Sveltia CMS calls structuredClone() on config and shim methods can't be cloned.
+  // See Story 7.5.
+  if (window.__electronRootDirHandle) {
+    return /** @type {FileSystemDirectoryHandle} */ (window.__electronRootDirHandle);
+  }
+
   if (!('showDirectoryPicker' in window)) {
     throw new Error('unsupported');
   }
