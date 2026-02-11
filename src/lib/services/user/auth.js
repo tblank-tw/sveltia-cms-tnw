@@ -156,6 +156,42 @@ export const getBackend = (_user) => {
 export const signInAutomatically = async () => {
   resetError();
 
+  // [ELECTRON] Auto-local mode bypass.
+  // When _autoLocalMode is set in the CMS config (passed from the Electron host app via
+  // CMS.init({ config })), skip the sign-in UI entirely and initialize the local backend
+  // (File System Access API) immediately. This eliminates the auth screen for desktop users.
+  // The local backend's getRootDirHandle() will try an IndexedDB-cached directory handle
+  // first; if no cache exists, it falls back to showing the File System Access API picker.
+  // Story 7.5 will eliminate the picker entirely by providing the path from Electron.
+  //
+  // We must wait for cmsConfig because this function runs (via onMount in sign-in.svelte)
+  // before initCmsConfig completes in the parent App.svelte's onMount. Without this wait,
+  // cmsConfig is undefined and local.init() would crash reading config.backend.name.
+  const config =
+    get(cmsConfig) ??
+    (await new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        unsubscribe();
+        reject(new Error('CMS config not available after 10 s'));
+      }, 10_000);
+      const unsubscribe = cmsConfig.subscribe((value) => {
+        if (value) {
+          clearTimeout(timeout);
+          unsubscribe();
+          resolve(value);
+        }
+      });
+    }).catch((err) => {
+      // eslint-disable-next-line no-console
+      console.error('[ELECTRON] auto-local mode config wait failed:', err);
+      return null;
+    }));
+
+  if (config?._autoLocalMode) {
+    await signInManually('local');
+    return;
+  }
+
   /** @type {Record<string, any> | undefined} */
   let _user = undefined;
   /** @type {Record<string, any> | undefined} */

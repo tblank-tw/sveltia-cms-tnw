@@ -74,7 +74,21 @@ export const getRootDirHandle = async ({ forceReload = false, showPicker = true 
   let handle = forceReload ? null : ((await rootDirHandleDB?.get(ROOT_DIR_HANDLE_KEY)) ?? null);
 
   if (handle) {
-    if ((await handle.requestPermission({ mode: 'readwrite' })) !== 'granted') {
+    // [ELECTRON] requestPermission requires a transient user activation (click/tap). When called
+    // automatically (e.g., auto-local mode bypass from onMount), there is no user gesture, so
+    // requestPermission throws SecurityError. Fall back to queryPermission, which checks the
+    // current permission state without requiring user activation. The Electron main process
+    // auto-grants fileSystem permissions via session.setPermissionCheckHandler, so
+    // queryPermission returns 'granted' even without a user gesture.
+    let permissionState;
+
+    try {
+      permissionState = await handle.requestPermission({ mode: 'readwrite' });
+    } catch {
+      permissionState = await handle.queryPermission({ mode: 'readwrite' });
+    }
+
+    if (permissionState !== 'granted') {
       handle = null;
     } else {
       try {
