@@ -32,7 +32,7 @@
       {@const logoURL = $cmsConfig?.logo?.src ?? $cmsConfig?.logo_url}
       <img src={logoURL || `data:image/svg+xml;base64,${btoa(SveltiaLogo)}`} alt="" class="logo" />
     {/if}
-    <h1>Sveltia CMS</h1>
+    <h1>Trust & Will Claude Marketplace</h1>
     {#if $cmsConfigErrors.length}
       <div role="alert" class="message">
         <div role="none">

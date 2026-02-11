@@ -68,7 +68,7 @@ describe('GitHub backend service', () => {
     vi.spyOn(Object, 'assign').mockImplementation(() => ({}));
     // Mock getTokenPageURL
     vi.mocked(getTokenPageURL).mockReturnValue(
-      'https://github.com/settings/personal-access-tokens/new?name=Sveltia+CMS&contents=write',
+      'https://github.com/settings/personal-access-tokens/new?name=Trust+%26+Will+Claude+Marketplace&contents=write',
     );
   });
 
@@ -132,7 +132,7 @@ describe('GitHub backend service', () => {
           branch: 'main',
           repoURL: 'https://github.com/owner/repo',
           tokenPageURL:
-            'https://github.com/settings/personal-access-tokens/new?name=Sveltia+CMS&contents=write',
+            'https://github.com/settings/personal-access-tokens/new?name=Trust+%26+Will+Claude+Marketplace&contents=write',
           databaseName: `${BACKEND_NAME}:owner/repo`,
           isSelfHosted: false,
         }),
@@ -193,7 +193,7 @@ describe('GitHub backend service', () => {
           branch: 'develop',
           repoURL: 'https://github.example.com/owner/repo',
           tokenPageURL:
-            'https://github.com/settings/personal-access-tokens/new?name=Sveltia+CMS&contents=write',
+            'https://github.com/settings/personal-access-tokens/new?name=Trust+%26+Will+Claude+Marketplace&contents=write',
           databaseName: `${BACKEND_NAME}:owner/repo`,
           isSelfHosted: true,
         }),

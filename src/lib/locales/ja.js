@@ -71,7 +71,7 @@ export const strings = {
   clipboard_error: 'データのコピー中に問題が発生しました。',
 
   // Entrance
-  welcome_to_sveltia_cms: 'Sveltia CMS へようこそ',
+  welcome_to_sveltia_cms: 'Trust & Will Claude Marketplace へようこそ',
   loading_cms_config: 'CMS 設定を読み込んでいます…',
   loading_site_data: 'サイトデータを読み込んでいます…',
   loading_site_data_error: 'サイトデータの読み込み中にエラーが発生しました。',
@@ -96,7 +96,7 @@ export const strings = {
     picker_dismissed: 'レポジトリのルートディレクトリを選択できませんでした。再度お試しください。',
     authentication_aborted: '認証が中断されました。再度お試しください。',
     invalid_token: '入力されたトークンが無効です。確認して再度お試しください。',
-    // Errors defined in Sveltia CMS Authenticator
+    // Errors defined in authenticator
     // https://github.com/sveltia/sveltia-cms-auth/blob/main/src/index.js
     UNSUPPORTED_BACKEND: 'この認証アプリはお使いの Git バックエンドに対応していません。',
     UNSUPPORTED_DOMAIN: 'この認証アプリではお使いのドメインの使用は許可されていません。',
@@ -153,11 +153,11 @@ export const strings = {
   bluesky: 'Bluesky でフォロー',
 
   // Onboarding
-  mobile_promo_title: 'Sveltia CMS がモバイルに対応しました！',
+  mobile_promo_title: 'Trust & Will Claude Marketplace がモバイルに対応しました！',
   mobile_promo_button: '試してみる',
 
   // Update notification
-  update_available: 'Sveltia CMS の最新版が利用可能です。',
+  update_available: 'Trust & Will Claude Marketplace の最新版が利用可能です。',
   update_now: '今すぐ更新',
 
   // Backend status indicator
@@ -428,7 +428,7 @@ export const strings = {
   revert_all_changes: 'すべての変更を取り消す',
   edit_slug: 'スラッグを編集',
   edit_slug_warning:
-    'スラッグを変更すると、エントリーへの内部・外部リンクが壊れる可能性があります。現在のところ、Sveltia CMS は Relation フィールドで作成された参照を更新しないため、そのような参照は他のリンクとともに手動で更新する必要があります。',
+    'スラッグを変更すると、エントリーへの内部・外部リンクが壊れる可能性があります。現在のところ、Trust & Will Claude Marketplace は Relation フィールドで作成された参照を更新しないため、そのような参照は他のリンクとともに手動で更新する必要があります。',
   edit_slug_error: {
     empty: 'スラッグは空白にはできません。',
     duplicate: 'このスラッグは他のエントリーに使われています。',
@@ -643,7 +643,7 @@ export const strings = {
       field: '`{field}` フィールド',
     },
     error: {
-      no_secure_context: 'Sveltia CMS は HTTPS またはローカルホスト URL でのみ動作します。',
+      no_secure_context: 'Trust & Will Claude Marketplace は HTTPS またはローカルホスト URL でのみ動作します。',
       insecure_url:
         '設定ファイルの URL は HTTPS プロトコルまたはローカルホストアドレスを使用する必要があります。',
       insecure_urls:
@@ -651,7 +651,7 @@ export const strings = {
       fetch_failed: '設定ファイルを読み込めませんでした。',
       fetch_failed_not_ok: 'HTTP レスポンスがステータス {status} で返されました。',
       fetch_failed_with_manual_init:
-        '設定ファイルを取得できませんでした。`config.yml` ファイルの読み込みを防ぐには、`CMS.init()` に渡される設定オブジェクトに [`load_config_file: false`](https://sveltiacms.app/en/docs/api/initialization#providing-a-full-configuration) を追加してください。',
+        '設定ファイルを取得できませんでした。`config.yml` ファイルの読み込みを防ぐには、`CMS.init()` に渡される設定オブジェクトに `load_config_file: false` を追加してください。',
       parse_failed: '設定ファイルを解析できませんでした。',
       parse_failed_invalid_object: '設定ファイルが有効な JavaScript オブジェクトではありません。',
       parse_failed_unsupported_type:
@@ -660,18 +660,18 @@ export const strings = {
       missing_backend: 'バックエンドが定義されていません。',
       missing_backend_name: 'バックエンド名が定義されていません。',
       unsupported_known_backend:
-        '{name} バックエンドは Sveltia CMS では [非対応です](https://sveltiacms.app/en/docs/migration/netlify-decap-cms#compatibility)。',
+        '{name} バックエンドは Trust & Will Claude Marketplace では非対応です。',
       unsupported_custom_backend:
-        'カスタムバックエンドは Sveltia CMS では [非対応です](https://sveltiacms.app/en/docs/migration/netlify-decap-cms#compatibility)。',
+        'カスタムバックエンドは Trust & Will Claude Marketplace では非対応です。',
       unsupported_backend_suggestion:
-        '[サポートされているバックエンド](https://sveltiacms.app/en/docs/backends#supported-backends) のいずれかを使用してください。',
+        'サポートされているバックエンドのいずれかを使用してください。',
       missing_repository: 'レポジトリが定義されていません。',
       invalid_repository:
         '設定されているレポジトリが正しくありません。この設定は「owner/repo」形式でなければなりません。',
       oauth_implicit_flow:
-        '設定されている認証方式 (暗黙的フロー) は Sveltia CMS では非対応です。代わりに PKCE 認証を使用してください。',
+        '設定されている認証方式 (暗黙的フロー) は Trust & Will Claude Marketplace では非対応です。代わりに PKCE 認証を使用してください。',
       github_pkce_unsupported:
-        'GitHub の制約により、Sveltia CMS ではまだ GitHub での PKCE 認証がサポートされていません。',
+        'GitHub の制約により、Trust & Will Claude Marketplace ではまだ GitHub での PKCE 認証がサポートされていません。',
       oauth_no_app_id: ' OAuth アプリケーション ID が定義されていません。',
       missing_media_folder: 'メディアフォルダーが定義されていません。',
       invalid_media_folder:
@@ -681,7 +681,7 @@ export const strings = {
       public_folder_relative_path:
         '設定されているパブリックフォルダーが正しくありません。この設定は「/」で始まる絶対パスでなければなりません。',
       public_folder_absolute_url:
-        'パブリックフォルダーオプションの絶対 URL は Sveltia CMS では非対応です。',
+        'パブリックフォルダーオプションの絶対 URL は Trust & Will Claude Marketplace では非対応です。',
       invalid_collection_no_options:
         'コレクションは `folder`、`files`、`divider` オプションのいずれかを定義する必要があります。',
       invalid_collection_multiple_options:
@@ -712,11 +712,11 @@ export const strings = {
       duplicate_variable_type:
         '変数タイプ名は一意でなければなりませんが、`{name}` が複数回使用されています。',
       date_field_type:
-        'Sveltia CMS では非推奨の Date フィールドタイプはサポートされていません。代わりに `time_format:false` オプション付きの DateTime フィールドタイプを使用してください。',
+        'Trust & Will Claude Marketplace では非推奨の Date フィールドタイプはサポートされていません。代わりに `time_format:false` オプション付きの DateTime フィールドタイプを使用してください。',
       unsupported_deprecated_option:
-        'Sveltia CMS では非推奨の `{prop}` オプションはサポートされていません。代わりに `{newProp}` オプションを使用してください。',
+        'Trust & Will Claude Marketplace では非推奨の `{prop}` オプションはサポートされていません。代わりに `{newProp}` オプションを使用してください。',
       allow_multiple:
-        'Sveltia CMS では `allow_multiple` オプションはサポートされていません。代わりにデフォルトで `false` の `multiple` オプションを使用してください。',
+        'Trust & Will Claude Marketplace では `allow_multiple` オプションはサポートされていません。代わりにデフォルトで `false` の `multiple` オプションを使用してください。',
       invalid_list_field:
         'List フィールドは `field`、`fields`、`types` オプションを同時に持つことはできません。',
       invalid_list_variable_type:
@@ -737,16 +737,16 @@ export const strings = {
     },
     warning: {
       editorial_workflow_unsupported:
-        'Sveltia CMS ではまだエディトリアルワークフローはサポートされていません。',
+        'Trust & Will Claude Marketplace ではまだエディトリアルワークフローはサポートされていません。',
       open_authoring_unsupported:
-        'Sveltia CMS ではまだオープンオーサリングはサポートされていません。',
+        'Trust & Will Claude Marketplace ではまだオープンオーサリングはサポートされていません。',
       nested_collections_unsupported:
-        'Sveltia CMS ではネストされたコレクションはまだサポートされていません。',
+        'Trust & Will Claude Marketplace ではネストされたコレクションはまだサポートされていません。',
       unsupported_ignored_option:
-        '`{prop}` オプションは Sveltia CMS ではサポートされていません。このオプションは無視されます。',
+        '`{prop}` オプションは Trust & Will Claude Marketplace ではサポートされていません。このオプションは無視されます。',
     },
     compatibility_link:
-      '詳しくは互換性情報をご覧ください: https://sveltiacms.app/en/docs/migration/netlify-decap-cms#compatibility',
+      '詳しくは互換性情報をご覧ください。',
   },
 
   // Backends

@@ -55,9 +55,6 @@ const unsupportedFuncNames = [
   'resolveWidget',
 ];
 
-const COMPATIBILITY_URL =
-  'https://sveltiacms.app/en/docs/migration/netlify-decap-cms#compatibility';
-
 let initialized = false;
 
 /**
@@ -177,7 +174,7 @@ const registerEditorComponent = (definition) => {
   customComponentRegistry.set(definition.id, definition);
 
   // eslint-disable-next-line no-console
-  console.warn('Preview for custom editor components are not yet supported in Sveltia CMS.');
+  console.warn('Preview for custom editor components are not yet supported in Trust & Will Claude Marketplace.');
 };
 
 /**
@@ -244,7 +241,7 @@ const registerPreviewStyle = (style, { raw = false } = {}) => {
  */
 const registerPreviewTemplate = (name, component) => {
   // eslint-disable-next-line no-console
-  console.warn('Custom preview templates are not yet supported in Sveltia CMS.');
+  console.warn('Custom preview templates are not yet supported in Trust & Will Claude Marketplace.');
 
   if (typeof name !== 'string') {
     throw new TypeError('The `name` option for `CMS.registerPreviewTemplate()` must be a string');
@@ -270,7 +267,7 @@ const registerPreviewTemplate = (name, component) => {
  */
 const registerFieldType = (name, control, preview, schema) => {
   // eslint-disable-next-line no-console
-  console.warn('Custom field types (widgets) are not yet supported in Sveltia CMS.');
+  console.warn('Custom field types (widgets) are not yet supported in Trust & Will Claude Marketplace.');
   void [name, control, preview, schema];
 };
 
@@ -297,12 +294,12 @@ const CMS = new Proxy(
 
       if (unsupportedFuncNames.includes(key)) {
         message =
-          'CMS.%s() is not supported in Sveltia CMS, and we don’t have any plans to implement it.';
+          'CMS.%s() is not supported in Trust & Will Claude Marketplace, and we don\u2019t have any plans to implement it.';
       }
 
       if (message) {
         // eslint-disable-next-line no-console
-        console.warn(`${message} See %s for compatibility information.`, key, COMPATIBILITY_URL);
+        console.warn(message, key);
 
         // eslint-disable-next-line jsdoc/require-description
         /** @returns {void} */

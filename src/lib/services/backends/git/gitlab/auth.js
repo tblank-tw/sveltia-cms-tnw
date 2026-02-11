@@ -16,7 +16,7 @@ export const getTokenPageURL = (repoURL) => {
   const { origin } = new URL(repoURL);
 
   const params = new URLSearchParams({
-    name: 'Sveltia CMS',
+    name: 'Trust & Will Claude Marketplace',
     scopes: 'api,read_user',
   });
 

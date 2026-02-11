@@ -36,7 +36,7 @@ describe('GitLab auth service', () => {
       const result = getTokenPageURL(repoURL);
 
       expect(result).toBe(
-        'https://gitlab.com/-/user_settings/personal_access_tokens?name=Sveltia+CMS&scopes=api%2Cread_user',
+        'https://gitlab.com/-/user_settings/personal_access_tokens?name=Trust+%26+Will+Claude+Marketplace&scopes=api%2Cread_user',
       );
     });
 
@@ -45,7 +45,7 @@ describe('GitLab auth service', () => {
       const result = getTokenPageURL(repoURL);
 
       expect(result).toBe(
-        'https://gitlab.example.com/-/user_settings/personal_access_tokens?name=Sveltia+CMS&scopes=api%2Cread_user',
+        'https://gitlab.example.com/-/user_settings/personal_access_tokens?name=Trust+%26+Will+Claude+Marketplace&scopes=api%2Cread_user',
       );
     });
 
@@ -54,7 +54,7 @@ describe('GitLab auth service', () => {
       const result = getTokenPageURL(repoURL);
 
       expect(result).toBe(
-        'https://gitlab.com/-/user_settings/personal_access_tokens?name=Sveltia+CMS&scopes=api%2Cread_user',
+        'https://gitlab.com/-/user_settings/personal_access_tokens?name=Trust+%26+Will+Claude+Marketplace&scopes=api%2Cread_user',
       );
     });
   });

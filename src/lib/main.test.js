@@ -600,7 +600,7 @@ describe('CMS.registerPreviewTemplate()', () => {
     // @ts-ignore
     CMS.registerPreviewTemplate('test', component);
     expect(consoleSpy).toHaveBeenCalledWith(
-      'Custom preview templates are not yet supported in Sveltia CMS.',
+      'Custom preview templates are not yet supported in Trust & Will Claude Marketplace.',
     );
     consoleSpy.mockRestore();
   });
@@ -664,7 +664,7 @@ describe('CMS.registerFieldType()', () => {
     // @ts-ignore
     CMS.registerFieldType('test', control);
     expect(consoleSpy).toHaveBeenCalledWith(
-      'Custom field types (widgets) are not yet supported in Sveltia CMS.',
+      'Custom field types (widgets) are not yet supported in Trust & Will Claude Marketplace.',
     );
     consoleSpy.mockRestore();
   });

@@ -22,7 +22,7 @@ describe('GitHub auth service', () => {
       const result = getTokenPageURL(repoURL);
 
       expect(result).toBe(
-        'https://github.com/settings/personal-access-tokens/new?name=Sveltia+CMS&contents=write',
+        'https://github.com/settings/personal-access-tokens/new?name=Trust+%26+Will+Claude+Marketplace&contents=write',
       );
     });
 
@@ -31,7 +31,7 @@ describe('GitHub auth service', () => {
       const result = getTokenPageURL(repoURL);
 
       expect(result).toBe(
-        'https://github.enterprise.com/settings/personal-access-tokens/new?name=Sveltia+CMS&contents=write',
+        'https://github.enterprise.com/settings/personal-access-tokens/new?name=Trust+%26+Will+Claude+Marketplace&contents=write',
       );
     });
 
@@ -40,7 +40,7 @@ describe('GitHub auth service', () => {
       const result = getTokenPageURL(repoURL);
 
       expect(result).toBe(
-        'https://github.com/settings/personal-access-tokens/new?name=Sveltia+CMS&contents=write',
+        'https://github.com/settings/personal-access-tokens/new?name=Trust+%26+Will+Claude+Marketplace&contents=write',
       );
     });
   });

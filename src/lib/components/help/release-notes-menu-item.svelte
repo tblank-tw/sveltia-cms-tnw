@@ -8,9 +8,7 @@
 
 <MenuItem
   label={$_('release_notes')}
-  onclick={() => {
-    window.open('https://github.com/sveltia/sveltia-cms/releases', '_blank');
-  }}
+  onclick={() => {}}
 >
   {#snippet endIcon()}
     {#if $prefs.devModeEnabled}

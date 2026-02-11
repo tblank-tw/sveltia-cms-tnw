@@ -31,7 +31,7 @@ function mockTranslate(key, options) {
     'config.error_locator.file': 'File: {file}',
     'config.error_locator.field': 'Field: {field}',
     'config.compatibility_link':
-      'See the compatibility notes for details: https://sveltiacms.app/en/docs/migration/netlify-decap-cms#compatibility',
+      'See the compatibility notes for details.',
   };
 
   let message = strings[key] || key;
@@ -726,7 +726,6 @@ describe('messages', () => {
       const message = Array.from(collectors.errors)[0];
 
       expect(message).toContain('See the compatibility notes');
-      expect(message).toContain('https://sveltiacms.app');
     });
   });
 

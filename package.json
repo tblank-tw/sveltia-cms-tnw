@@ -1,14 +1,14 @@
 {
-  "name": "@sveltia/cms",
+  "name": "@trustandwill/claude-marketplace-cms",
   "version": "0.140.2",
-  "description": "Sveltia CMS is a modern, lightweight, Git-based headless content management system.",
+  "description": "Trust & Will Claude Marketplace CMS — forked from Sveltia CMS for desktop content editing.",
   "keywords": [
     "cms",
     "content-management-system"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sveltia/sveltia-cms"
+    "url": "https://github.com/tblank-tw/sveltia-cms-tnw"
   },
   "license": "MIT",
   "type": "module",

@@ -21,33 +21,30 @@ export const warnedOnceMap = {
  */
 export const warningMessages = {
   slug_length:
-    'The `slug_length` collection option is deprecated and will be removed in Sveltia CMS 1.0. ' +
-    'Use the global `slug.maxlength` option instead. ',
+    'The `slug_length` collection option is deprecated and will be removed in a future version. ' +
+    'Use the global `slug.maxlength` option instead.',
   yaml_quote:
-    'The `yaml_quote` collection option is deprecated and will be removed in Sveltia CMS 1.0. ' +
+    'The `yaml_quote` collection option is deprecated and will be removed in a future version. ' +
     'Use the global `output.yaml.quote` option instead. `yaml_quote: true` is equivalent to ' +
-    '`quote: double`. https://sveltiacms.app/en/docs/data-output#controlling-data-output',
+    '`quote: double`.',
   uuid_read_only:
-    'The `read_only` option for the UUID field type is deprecated and will be removed in Sveltia ' +
-    'CMS 1.0. Use the `readonly` option instead.',
+    'The `read_only` option for the UUID field type is deprecated and will be removed in ' +
+    'a future version. Use the `readonly` option instead.',
   save_all_locales:
-    'The `save_all_locales` i18n option is deprecated and will be removed in Sveltia CMS 1.0. ' +
+    'The `save_all_locales` i18n option is deprecated and will be removed in a future version. ' +
     'Use the `initial_locales` option instead. `save_all_locales: false` is equivalent to ' +
-    '`initial_locales: all`. ' +
-    'https://sveltiacms.app/en/docs/i18n#disabling-non-default-locale-content',
+    '`initial_locales: all`.',
   automatic_deployments:
-    'The `automatic_deployments` backend option is deprecated and will be removed in Sveltia CMS ' +
-    '1.0. Use the `skip_ci` option instead. `automatic_deployments: false` is equivalent to ' +
-    '`skip_ci: true`, and `automatic_deployments: true` is equivalent to `skip_ci: false`. ' +
-    'https://sveltiacms.app/en/docs/deployments#disabling-automatic-deployments',
+    'The `automatic_deployments` backend option is deprecated and will be removed in ' +
+    'a future version. Use the `skip_ci` option instead. `automatic_deployments: false` is ' +
+    'equivalent to `skip_ci: true`, and `automatic_deployments: true` is equivalent to ' +
+    '`skip_ci: false`.',
   multiple_folders_i18n_root:
     'The `multiple_folders_i18n_root` i18n structure is deprecated and will be removed in ' +
-    'Sveltia CMS 1.0. Use the `multiple_root_folders` structure instead. ' +
-    'https://sveltiacms.app/en/docs/i18n#multiple-root-folders',
+    'a future version. Use the `multiple_root_folders` structure instead.',
   omit_default_locale_from_filename:
     'The `omit_default_locale_from_filename` i18n option is deprecated and will be removed in ' +
-    'Sveltia CMS 1.0. Use the `omit_default_locale_from_file_path` option instead. ' +
-    'https://sveltiacms.app/en/docs/i18n#managing-content-structure',
+    'a future version. Use the `omit_default_locale_from_file_path` option instead.',
 };
 
 /**

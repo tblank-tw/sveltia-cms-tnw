@@ -61,7 +61,7 @@ describe('GitLab backend service', () => {
       blobBaseURL: 'https://gitlab.com/owner/repo/-/blob/main',
     });
     vi.mocked(getTokenPageURL).mockReturnValue(
-      'https://gitlab.com/-/user_settings/personal_access_tokens?name=Sveltia+CMS&scopes=api%2Cread_user',
+      'https://gitlab.com/-/user_settings/personal_access_tokens?name=Trust+%26+Will+Claude+Marketplace&scopes=api%2Cread_user',
     );
 
     // Reset mocked objects
@@ -98,7 +98,7 @@ describe('GitLab backend service', () => {
           branch: 'main',
           repoURL: 'https://gitlab.com/owner/repo',
           tokenPageURL:
-            'https://gitlab.com/-/user_settings/personal_access_tokens?name=Sveltia+CMS&scopes=api%2Cread_user',
+            'https://gitlab.com/-/user_settings/personal_access_tokens?name=Trust+%26+Will+Claude+Marketplace&scopes=api%2Cread_user',
           databaseName: 'gitlab:owner/repo',
           isSelfHosted: false,
         }),
@@ -149,7 +149,7 @@ describe('GitLab backend service', () => {
           branch: 'develop',
           repoURL: 'https://custom-gitlab.com/group/subgroup/project',
           tokenPageURL:
-            'https://gitlab.com/-/user_settings/personal_access_tokens?name=Sveltia+CMS&scopes=api%2Cread_user',
+            'https://gitlab.com/-/user_settings/personal_access_tokens?name=Trust+%26+Will+Claude+Marketplace&scopes=api%2Cread_user',
           databaseName: 'gitlab:group/subgroup/project',
           isSelfHosted: true,
         }),
