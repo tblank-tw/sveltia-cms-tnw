@@ -18,8 +18,6 @@ describe('Backend Services Index', () => {
   describe('allBackendServices', () => {
     test('should contain all expected backend services', () => {
       expect(allBackendServices).toHaveProperty('github');
-      expect(allBackendServices).toHaveProperty('gitlab');
-      expect(allBackendServices).toHaveProperty('gitea');
       expect(allBackendServices).toHaveProperty('local');
       expect(allBackendServices).toHaveProperty('test-repo');
     });
@@ -49,8 +47,6 @@ describe('Backend Services Index', () => {
   describe('validBackendNames', () => {
     test('should contain expected backend names', () => {
       expect(validBackendNames).toContain('github');
-      expect(validBackendNames).toContain('gitlab');
-      expect(validBackendNames).toContain('gitea');
       expect(validBackendNames).toContain('test-repo');
     });
 
@@ -85,8 +81,6 @@ describe('Backend Services Index', () => {
 
     test('should contain expected Git backends', () => {
       expect(gitBackendServices).toHaveProperty('github');
-      expect(gitBackendServices).toHaveProperty('gitlab');
-      expect(gitBackendServices).toHaveProperty('gitea');
     });
   });
 
@@ -139,9 +133,9 @@ describe('Backend Services Index', () => {
     test('should call init when backend changes', () => {
       const mockInit = vi.fn();
 
-      allBackendServices.gitlab.init = mockInit;
+      allBackendServices.local.init = mockInit;
 
-      backendName.set('gitlab');
+      backendName.set('local');
       get(backend); // Trigger the derived store
 
       expect(mockInit).toHaveBeenCalled();
@@ -150,9 +144,9 @@ describe('Backend Services Index', () => {
     test('should not call init again for the same backend', () => {
       const mockInit = vi.fn();
 
-      allBackendServices.gitea.init = mockInit;
+      allBackendServices['test-repo'].init = mockInit;
 
-      backendName.set('gitea');
+      backendName.set('test-repo');
       get(backend); // First access
       get(backend); // Second access
 
