@@ -31,7 +31,11 @@
       ? undefined
       : /** @type {GitBackend} */ ($cmsConfig?.backend)?.repo?.split('/').pop(),
   );
-  const showLocalBackendOption = $derived($isLocalHost && !isTestRepo);
+  const showLocalBackendOption = $derived($isLocalHost && !isTestRepo && $cmsConfig?._mode !== 'remote');
+  // OAuth popup flow doesn't work in Electron — window.open() goes to system browser,
+  // severing the postMessage channel back to the renderer. Hide the OAuth button and
+  // promote the PAT button to primary when running inside Electron.
+  const isElectronHostHost = $derived(!!$cmsConfig?._mode);
 
   onMount(() => {
     signInAutomatically();
@@ -73,19 +77,23 @@
       {/if}
       <Spacer />
     {/if}
-    <Button
-      variant={showLocalBackendOption ? 'secondary' : 'primary'}
-      label={isTestRepo
-        ? $_('work_with_test_repo')
-        : $_('sign_in_with_x', { values: { service: configuredBackend.label } })}
-      onclick={async () => {
-        await signInManually(configuredBackendName);
-      }}
-    />
+    {#if !isElectronHost}
+      <Button
+        variant={showLocalBackendOption ? 'secondary' : 'primary'}
+        label={isTestRepo
+          ? $_('work_with_test_repo')
+          : $_('sign_in_with_x', { values: { service: configuredBackend.label } })}
+        onclick={async () => {
+          await signInManually(configuredBackendName);
+        }}
+      />
+    {/if}
     {#if !isTestRepo}
       <Button
-        variant="secondary"
-        label={$_('sign_in_with_x_using_token', { values: { service: configuredBackend.label } })}
+        variant={isElectronHost ? 'primary' : 'secondary'}
+        label={isElectronHost
+          ? $_('sign_in_with_x', { values: { service: configuredBackend.label } })
+          : $_('sign_in_with_x_using_token', { values: { service: configuredBackend.label } })}
         onclick={() => {
           showTokenDialog = true;
         }}
