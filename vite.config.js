@@ -185,6 +185,10 @@ export default defineConfig({
     reportCompressedSize: false,
     chunkSizeWarningLimit: 5000,
     sourcemap: true,
+    // Inline font assets as base64 data URLs in the IIFE bundle (DM Sans woff2 files are
+    // ~55KB total). This avoids needing to copy separate asset files alongside sveltia-cms.js.
+    // NOTE: This inlines ALL assets under 100KB — review threshold if adding new asset types.
+    assetsInlineLimit: 100_000,
     rollupOptions: {
       // Output JavaScript only
       input: 'src/lib/main.js',
