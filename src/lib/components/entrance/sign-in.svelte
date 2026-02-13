@@ -35,7 +35,7 @@
   // OAuth popup flow doesn't work in Electron — window.open() goes to system browser,
   // severing the postMessage channel back to the renderer. Hide the OAuth button and
   // promote the PAT button to primary when running inside Electron.
-  const isElectronHostHost = $derived(!!$cmsConfig?._mode);
+  const isElectronHost = $derived(!!$cmsConfig?._mode);
 
   onMount(() => {
     signInAutomatically();
