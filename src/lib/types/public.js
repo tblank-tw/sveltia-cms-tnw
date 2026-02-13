@@ -715,6 +715,8 @@
  * @property {boolean | 'auto'} [collapsed] Whether to collapse the object by default. Default:
  * `false`. If set to `auto`, the UI is collapsed if the object has any filled subfields and
  * expanded if all the subfields are empty.
+ * @property {boolean} [flatten] When true, subfield values are serialized as top-level
+ * frontmatter keys instead of nested under this object\u2019s name. Used for visual-only grouping.
  * @property {string} [summary] Template of a label to be displayed on a collapsed object.
  * @see https://decapcms.org/docs/widgets/#Object
  * @see https://sveltiacms.app/en/docs/fields/object

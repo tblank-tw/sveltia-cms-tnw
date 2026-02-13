@@ -8,6 +8,51 @@ import { createProxy } from '$lib/services/contents/draft/create/proxy';
 import { getDefaultValues } from '$lib/services/contents/draft/defaults';
 
 /**
+ * For object fields with `flatten: true`, remap top-level content keys
+ * into the object\u2019s dot-notation namespace so the editor can find them.
+ * E.g., "allowed-tools" \u2192 "advanced-settings.allowed-tools"
+ * @param {Record<string, any> | undefined} content Flattened entry content.
+ * @param {object[]} fields Collection field definitions.
+ * @returns {Record<string, any> | undefined} Remapped content.
+ */
+const remapFlattenedContent = (content, fields) => {
+  if (!content) return content;
+
+  fields.forEach((field) => {
+    if (field.widget === 'object' && field.flatten && field.fields) {
+      const prefix = `${field.name}.`;
+      const subFieldNames = new Set();
+
+      // Collect all possible subfield key prefixes (handles nested objects too)
+      const collectNames = (subFields, keyPrefix) => {
+        subFields.forEach((sf) => {
+          subFieldNames.add(`${keyPrefix}${sf.name}`);
+
+          if (sf.widget === 'object' && sf.fields) {
+            collectNames(sf.fields, `${keyPrefix}${sf.name}.`);
+          }
+        });
+      };
+
+      collectNames(field.fields, '');
+
+      // Remap matching top-level keys into the object namespace
+      Object.keys(content).forEach((key) => {
+        if (
+          subFieldNames.has(key) ||
+          [...subFieldNames].some((n) => key.startsWith(`${n}.`))
+        ) {
+          content[`${prefix}${key}`] = content[key];
+          delete content[key];
+        }
+      });
+    }
+  });
+
+  return content;
+};
+
+/**
  * @import {
  * InternalCollection,
  * InternalCollectionFile,
@@ -145,7 +190,7 @@ export const createDraft = ({
     enabledLocales.map((locale) =>
       isNew
         ? [locale, getDefaultValues({ fields, locale, defaultLocale, dynamicValues })]
-        : [locale, structuredClone(locales?.[locale]?.content)],
+        : [locale, remapFlattenedContent(structuredClone(locales?.[locale]?.content), fields)],
     ),
   );
 

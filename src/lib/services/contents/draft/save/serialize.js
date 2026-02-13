@@ -177,6 +177,26 @@ const finalizeContent = ({
       copyProperty({ ...copyArgs, key });
     });
 
+  // Flatten object keys for fields with flatten: true
+  fields.forEach((field) => {
+    if (field.widget === 'object' && field.flatten) {
+      const prefix = `${field.name}.`;
+
+      // Remove the parent object key itself
+      delete sortedMap[field.name];
+
+      // Rename "advanced-settings.allowed-tools" → "allowed-tools"
+      Object.keys(sortedMap)
+        .filter((key) => key.startsWith(prefix))
+        .forEach((key) => {
+          const flatKey = key.slice(prefix.length);
+
+          sortedMap[flatKey] = sortedMap[key];
+          delete sortedMap[key];
+        });
+    }
+  });
+
   return unflatten(sortedMap);
 };
 
